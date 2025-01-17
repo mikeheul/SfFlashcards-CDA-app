@@ -14,24 +14,31 @@
             <div class="text-sm mb-4">{{ error }}</div>
         {% endfor %}
 
-        <div class="mb-4">
-            <label for="email" class="block text-gray-700 font-medium pb-2">Email</label>
-            {{ form_widget(registrationForm.email, {'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
-        </div>
+        {{ form_start(registrationForm) }}
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-medium pb-2">Email</label>
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
+            </div>
 
-        <div class="mb-4">
-            <label for="pseudo" class="block text-gray-700 font-medium pb-2">Pseudo</label>
-            {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
-        </div>
+            <div class="mb-4">
+                <label for="pseudo" class="block text-gray-700 font-medium pb-2">Pseudo</label>
+                {{ form_widget(registrationForm.pseudo, {'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
+            </div>
 
-        <div class="mb-4">
-            <label for="plainPassword" class="block text-gray-700 font-medium pb-2">Password</label>
-            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
-        </div>
+            <div class="mb-4">
+                <label for="plainPassword" class="block text-gray-700 font-medium pb-2">Password</label>
+                {{ form_widget(registrationForm.plainPassword, { label: 'Password', 'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
+            </div>
 
-        <button class="w-full bg-teal-500 hover:bg-teal-600 text-white mt-4 py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2" type="submit">
-            Register
-        </button>
+            <div class="mb-4">
+                <label for="agreedTerms" class="block text-gray-700 font-medium pb-2">Agreed Terms</label>
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'w-full mt-2 p-2 border border-gray-300 rounded-lg focus:border-teal-500 focus:ring-teal-500 focus:outline-none'}}) }}
+            </div>
+
+            <button class="w-full bg-teal-500 hover:bg-teal-600 text-white mt-4 py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2" type="submit">
+                Register
+            </button>
+        {{ form_end(registrationForm) }}
     </form>
 </div>
 {% endblock %}
