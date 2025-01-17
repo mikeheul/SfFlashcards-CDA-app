@@ -1,0 +1,32 @@
+<header class="bg-lightgray sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+
+    <figure class="w-20">
+    <a href="{{ path('app_home') }}">
+        <img src="{{ asset('img/logo.png') }}" alt="Logo Flashcards" class="w-full h-auto">
+    </a>
+    </figure>
+
+    <div class="flex items-center space-x-4">
+
+        <div class="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700">
+            <a href="{{ path('app_home') }}" class="text-white">Home</a>
+        </div>
+        {% if app.user %}
+        <div class="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700">
+            <a href="#" class="text-white">Flashcards</a>
+        </div>
+        <div class="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700">
+            <a href="#" class="text-white">My learned cards</a>
+        </div>
+        {% else %}
+        <div class="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700">
+        <a href="{{ path('app_login') }}" class="text-white">Login</a>
+        </div>
+        <div class="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700">
+        <a href="{{ path('app_register') }}" class="text-white">Register</a>
+        </div>
+        {% endif %}
+    </div>
+</nav>
+</header>
