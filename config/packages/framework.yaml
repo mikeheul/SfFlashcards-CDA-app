@@ -7,6 +7,10 @@ framework:
 
     #esi: true
     #fragments: true
+    http_client:
+        scoped_clients:
+            httpc:
+                base_uri: http://localhost:3000/
 
 when@test:
     framework:
