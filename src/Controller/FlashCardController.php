@@ -14,7 +14,7 @@ final class FlashCardController extends AbstractController{
     public function flashcards(ApiHttpClient $apiHttpClient): Response
     {
         $flashcards = $apiHttpClient->getFlashcards();
-        return $this->render('home/index.html.twig', [
+        return $this->render('flashcards/index.html.twig', [
             'flashcards' => $flashcards,
         ]);
     }
