@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Flashcard Form{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Flashcard Form</h1>
+    <div>
+        {{ form_start(form) }}
+            {{ form_row(form.question) }}
+            {{ form_row(form.answer)}}
+            {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}
