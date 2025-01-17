@@ -10,11 +10,12 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class FlashCardController extends AbstractController{
-    #[Route('/flashcard/card', name: 'app_flashcard')]
-    public function index(): Response
+    #[Route('/flashcards', name: 'app_flashcards')]
+    public function flashcards(ApiHttpClient $apiHttpClient): Response
     {
-        return $this->render('flash_card/index.html.twig', [
-            'controller_name' => 'FlashCardController',
+        $flashcards = $apiHttpClient->getFlashcards();
+        return $this->render('home/index.html.twig', [
+            'flashcards' => $flashcards,
         ]);
     }
 
@@ -48,4 +49,5 @@ final class FlashCardController extends AbstractController{
             'form' => $flashCardForm,
         ]);
     }
+    
 }
