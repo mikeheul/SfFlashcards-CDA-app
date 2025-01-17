@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use DateTime;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
@@ -38,11 +38,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $pseudo = null;
 
     #[ORM\Column]
-    private ?DateTime $registered_at = null;
+    private ?DateTimeImmutable $registered_at = null;
 
     public function __construct()
     {
-        $this->registeredAt = new DateTime;
+        $this->registered_at = new DateTimeImmutable;
     }
 
     public function getId(): ?int
@@ -131,12 +131,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRegisteredAt(): ?DateTime
+    public function getRegisteredAt(): ?DateTimeImmutable
     {
         return $this->registered_at;
     }
 
-    public function setRegisteredAt(DateTime $registered_at): static
+    public function setRegisteredAt(DateTimeImmutable $registered_at): static
     {
         $this->registered_at = $registered_at;
 
