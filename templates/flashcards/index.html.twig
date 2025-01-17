@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+{% include "_partials/_header.html.twig" %}
+
+    <div class="py-8 px-4">
+        <h1 class="text-4xl font-bold text-blue mb-6">Flashcards</h1>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2  gap-6">
+
+            {% for flashcard in flashcards %}
+            <div class="bg-blue text-white rounded-lg p-6 shadow-lg relative flex flex-col">
+                <div class="mb-2">
+                    <p class="font-medium text-lg">
+                        <i class="fa-regular fa-circle-question pr-2"></i> {{ flashcard.question }}
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-full inline-block">
+                        <button onclick="showAnswer(this)" class="bg-teal-600 hover:bg-teal-700 px-4 py-2 rounded-lg my-4 w-full">
+                            Answer
+                        </button>
+                        <p class="hidden bg-teal-600 px-4 py-2 rounded-lg my-4 w-full text-center">
+                            <i class="fa-regular fa-circle-check pr-2"></i> {{ flashcard.answer }}
+                        </p>
+                    </div>
+                </div>
+                <div class="text-xs text-gray-200 flex justify-between">
+                    {# <p>{{ flashcard.answer }}</p> 
+                    <p>{{ flashcard.answer }}</p> #}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showAnswer(button) {
+            const answer = button.nextElementSibling; 
+            answer.classList.remove('hidden');
+            button.classList.add('hidden'); 
+        }
+        </script>
+
+{% endblock %}
