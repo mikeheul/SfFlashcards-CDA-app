@@ -27,11 +27,6 @@ class FlashCardType extends AbstractType
                     'class' => 'form-fields' 
                 ]
             ])
-            ->add("submit", SubmitType::class, [
-                'attr' => [
-                    'class' => 'btn-submit' 
-                ]
-            ])
         ;
     }
 
