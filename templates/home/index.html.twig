@@ -3,5 +3,10 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<h1 class="text-4xl font-bold text-blue-500">App Flashcards</h1>
+
+{% include "_partials/_header.html.twig" %}
+
+    <div class="py-8 px-4">
+        <h1 class="text-4xl font-bold text-blue mb-6">Flashcards</h1>
+    </div>
 {% endblock %}
